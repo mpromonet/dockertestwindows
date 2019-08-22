@@ -9,7 +9,9 @@ ADD https://github.com/lucasg/Dependencies/releases/download/v1.9/Dependencies_x
 
 RUN tar xzvf webrtc-streamer.tar.gz --strip=1 && tar -xvf Dependencies_x64_Release.zip
 
-RUN Dependencies.exe -knowndll webrtc-streamer.exe
+RUN Dependencies.exe -h || powershell.exe "Get-EventLog -LogName Application -After (Get-Date).AddMinutes(-5)"
+
+RUN Dependencies.exe -knowndll webrtc-streamer.exe || powershell.exe "Get-EventLog -LogName Application -After (Get-Date).AddMinutes(-5)"
 
 RUN webrtc-streamer.exe -h || powershell.exe "Get-EventLog -LogName Application -After (Get-Date).AddMinutes(-5)"
 
