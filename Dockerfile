@@ -7,7 +7,7 @@ WORKDIR /app
 ADD https://github.com/mpromonet/webrtc-streamer/releases/download/v0.1.4/webrtc-streamer-v0.1.4-Windows-AMD64-Release.tar.gz /app/webrtc-streamer.tar.gz
 ADD https://github.com/lucasg/Dependencies/releases/download/v1.9/Dependencies_x64_Release.zip /app/Dependencies_x64_Release.zip
 
-RUN tar xzf webrtc-streamer.tar.gz --strip=1 && tar -xf Dependencies_x64_Release.zip
+RUN tar xzvf webrtc-streamer.tar.gz --strip=1 && tar -xvf Dependencies_x64_Release.zip
 
 RUN Dependencies.exe -knowndll webrtc-streamer.exe
 
