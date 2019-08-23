@@ -9,9 +9,9 @@ ADD https://github.com/lucasg/Dependencies/releases/download/v1.9/Dependencies_x
 
 RUN tar xzvf webrtc-streamer.tar.gz --strip=1 && tar -xvf Dependencies_x64_Release.zip
 
-RUN Dependencies.exe -h || wevtutil.exe qe Application
+RUN Dependencies.exe -h || wevtutil.exe qe Application && wevtutil.exe qe System
 
-RUN Dependencies.exe -knowndll webrtc-streamer.exe || wevtutil.exe qe Application
+RUN Dependencies.exe -knowndll webrtc-streamer.exe || wevtutil.exe qe Application && wevtutil.exe qe System
 
-RUN webrtc-streamer.exe -h || powershell.exe wevtutil.exe qe Application
+RUN webrtc-streamer.exe -h || wevtutil.exe qe Application && wevtutil.exe qe System
 
