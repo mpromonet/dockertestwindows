@@ -1,5 +1,5 @@
 # build
-FROM mcr.microsoft.com/windows/nanoserver:1903 
+FROM mcr.microsoft.com/windows:1809 
 LABEL maintainer=michel.promonet@free.fr
 
 WORKDIR /app
