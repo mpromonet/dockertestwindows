@@ -1,11 +1,5 @@
 # build
-FROM mcr.microsoft.com/windows:1809 
-LABEL maintainer=michel.promonet@free.fr
-
-WORKDIR /app
-
-ADD https://github.com/mpromonet/webrtc-streamer/releases/download/v0.1.4/webrtc-streamer-v0.1.4-Windows-AMD64-Release.tar.gz /app/webrtc-streamer.tar.gz
-RUN tar xzvf webrtc-streamer.tar.gz --strip=1
-
-RUN webrtc-streamer.exe -V
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
+RUN powershell.exe -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SETX PATH "%PATH%;%ALLUSERSPROFILE%\chocolatey\bin" 
+RUN choco install --no-progress -y windows-sdk-10-version-2004-all
 
