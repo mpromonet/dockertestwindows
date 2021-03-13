@@ -11,6 +11,7 @@ RUN powershell.exe -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command
 RUN choco upgrade chocolatey && choco install --ignoredetectedreboot --no-progress -y visualstudio2017buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Workload.NativeDesktop --add Microsoft.VisualStudio.Component.VC.ATLMFC --includeRecommended --nocache --installPath %MSVC_PATH%" || IF "%ERRORLEVEL%"=="3010" EXIT 0
 RUN type C:\ProgramData\chocolatey\logs\chocolatey.log
 RUN call "%MSVC_PATH%\VC\Auxiliary\Build\vcvars64.bat"
-RUN choco upgrade chocolatey && choco install --no-progress -y 7zip git python2 sed curl windows-sdk-10-version-2004-all cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+RUN choco install --no-progress -y 7zip git python2 sed curl windows-sdk-10-version-2004-all
 RUN sed -h
+RUN choco install --no-progress -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 RUN cmake -h
