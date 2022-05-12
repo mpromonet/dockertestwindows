@@ -1,5 +1,5 @@
 # build
-FROM mcr.microsoft.com/dotnet/sdk:6.0-windowsservercore-ltsc2019
+FROM mcr.microsoft.com/dotnet/sdk:7.0-windowsservercore-ltsc2019
 
 ENV MSVC_PATH="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community" 
 SHELL ["cmd", "/S", "/C"]
@@ -11,5 +11,5 @@ RUN choco install --no-progress -y windows-sdk-10-version-2004-all windows-sdk-1
 #RUN type C:\ProgramData\chocolatey\logs\chocolatey.log
 #RUN call "%MSVC_PATH%\VC\Auxiliary\Build\vcvars64.bat"
 RUN set
-RUN dir /s "C:\Program Files (x86)\Windows Kits\10"
+RUN dir /s /b  "C:\Program Files (x86)\Windows Kits\10\*.lib"
 
