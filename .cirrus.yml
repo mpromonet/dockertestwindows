@@ -1,7 +1,7 @@
 windows_docker_builder:    
   timeout_in: 120m
   platform: windows
-  os_version: 2022 
+  os_version: 2019
   script: |
     docker info
     docker build  -m 2GB --no-cache -t %CIRRUS_REPO_FULL_NAME%:latest . 
