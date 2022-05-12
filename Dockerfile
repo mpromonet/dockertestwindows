@@ -1,5 +1,5 @@
 # build
-FROM mcr.microsoft.com/dotnet/framework/sdk:6.0-windowsservercore-ltsc2022
+FROM mcr.microsoft.com/dotnet/sdk:6.0-windowsservercore-ltsc2022
 
 ENV MSVC_PATH="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community" 
 SHELL ["cmd", "/S", "/C"]
